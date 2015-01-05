@@ -1,0 +1,218 @@
+@color-background-primary: rgb(6, 103, 199);
+@color-background-secondary: lighten(@color-background-primary, 50%);
+@color-background-neutral: rgb(240, 240, 240);
+
+.Calendar {
+    display: inline-block;
+    box-shadow: 0 0 5px -2px black;
+    overflow: hidden;
+    border-radius: 4px;
+    max-width: 400px;
+    -webkit-user-select: none;
+}
+
+.Calendar:focus {
+    outline: none;
+}
+
+.Calendar-monthHeader {
+    position: relative;
+    background: @color-background-primary;
+    color: white;
+    height: 60px;
+    line-height: 60px;
+}
+
+.Calendar-button {
+    background: none;
+    border: none;
+    vertical-align: middle;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.Calendar-button.round {
+    border-radius: 25px;    
+}
+
+.Calendar-button:focus {
+    outline: none;
+}
+
+.Calendar-button:hover {
+    background: rgba(255, 255, 255, .2);
+}
+
+.Calendar-button.today {
+    background: rgb(6, 103, 199);
+    color: white;
+}
+
+.Calendar-button.today:hover {
+    opacity: .8;
+}
+
+.Calendar-button.lastMonth,
+.Calendar-button.nextMonth {
+    position: absolute;    
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    font-size: 26px;
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.Calendar-button.lastMonth {
+    left: 10px;
+}
+
+.Calendar-button.nextMonth {
+    right: 10px;
+}
+
+.Calendar-monthTitle {  
+    position: absolute;
+    top: 0;
+    left: 60px;
+    right: 60px;
+    text-align: center;
+    font-size: 150%;
+    line-height: 60px;
+    white-space: nowrap;
+    transition: transform .3s ease-out 0, opacity .3s ease-out;
+}
+
+.Calendar-monthTitle.title-enter {
+    opacity: 0.01;
+}
+
+.Calendar-monthTitle.title-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.forward .Calendar-monthTitle.title-enter:not(.title-enter-active) {
+    transform: translateX(40px);
+}
+
+.backward .Calendar-monthTitle.title-enter:not(.title-enter-active) {
+    transform: translateX(-40px);
+}
+
+
+.Calendar-monthTitle.title-leave {
+    opacity: 0;
+}
+
+.Calendar.backward .Calendar-monthTitle.title-leave {
+    transform: translateX(40px);
+}
+
+.Calendar.forward .Calendar-monthTitle.title-leave {
+    transform: translateX(-40px);
+}
+
+.Calendar-calendar {
+    position: relative;
+    height: 274px;
+    overflow: hidden;
+}
+
+.Calendar-daysRow {
+    padding: 5px;
+    background: @color-background-neutral;
+    white-space: nowrap;
+}
+
+.Calendar-footer {
+    background: @color-background-neutral;
+    text-align: center;    
+}
+
+.Calendar-weekRow {
+    height: 44px;
+    border-bottom: 1px solid @color-background-neutral;
+}
+.Calendar-daysCell {
+    display: inline-block;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: bottom;
+    width: 40px;
+    margin: 2px;
+}
+
+.Calendar-weekRows {
+    position: absolute;
+    top: 0;
+    padding: 5px;
+    transition: opacity .3s ease-out, transform .3s ease-out;
+}
+
+.Calendar-weekRows.calendar-enter:not(.calendar-enter-active) {
+    opacity: 0;    
+}
+
+.backward .Calendar-weekRows.calendar-enter:not(.calendar-enter-active) {
+    transform: translateY(-50%);
+}
+
+.forward .Calendar-weekRows.calendar-enter:not(.calendar-enter-active) {
+    transform: translateY(50%);
+}
+
+
+.Calendar-weekRows.calendar-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Calendar.forward .Calendar-weekRows.calendar-enter-active {
+    opacity: 1;
+}
+
+.Calendar.forward .Calendar-weekRows.calendar-leave {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.Calendar.backward .Calendar-weekRows.calendar-leave {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.Calendar-weekCell {
+    display: inline-block;
+    border-radius: 25px;
+    font-size: 12px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    color: black;
+}
+
+.Calendar-weekCell:hover {
+    cursor: pointer;
+    background: #F8f8f8;
+    
+}
+
+.Calendar-weekCell.isToday:not(.isSelected) {
+    background: @color-background-secondary;
+}
+
+.Calendar-weekCell.isSelected {
+    background: @color-background-primary;
+    color: white;
+}
+
+.Calendar-weekCell:not(.isInMonth) {
+    color: #BBB;    
+}
+
