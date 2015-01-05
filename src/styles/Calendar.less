@@ -1,3 +1,5 @@
+@import (reference) "./Common.less";
+
 @color-background-primary: rgb(6, 103, 199);
 @color-background-secondary: lighten(@color-background-primary, 50%);
 @color-background-neutral: rgb(240, 240, 240);
@@ -8,7 +10,7 @@
     overflow: hidden;
     border-radius: 4px;
     max-width: 400px;
-    -webkit-user-select: none;
+    .userSelect(none);
 }
 
 .Calendar:focus {
@@ -82,7 +84,7 @@
     font-size: 150%;
     line-height: 60px;
     white-space: nowrap;
-    transition: transform .3s ease-out 0, opacity .3s ease-out;
+    .transition(~"transform .3s ease-out 0, opacity .3s ease-out");
 }
 
 .Calendar-monthTitle.title-enter {
@@ -90,16 +92,16 @@
 }
 
 .Calendar-monthTitle.title-enter-active {
-    transform: translateX(0);
+    .translate(0);
     opacity: 1;
 }
 
 .forward .Calendar-monthTitle.title-enter:not(.title-enter-active) {
-    transform: translateX(40px);
+    .translate(40px);
 }
 
 .backward .Calendar-monthTitle.title-enter:not(.title-enter-active) {
-    transform: translateX(-40px);
+    .translate(-40px);
 }
 
 
@@ -108,11 +110,11 @@
 }
 
 .Calendar.backward .Calendar-monthTitle.title-leave {
-    transform: translateX(40px);
+    .translate(40px);
 }
 
 .Calendar.forward .Calendar-monthTitle.title-leave {
-    transform: translateX(-40px);
+    .translate(-40px);
 }
 
 .Calendar-calendar {
@@ -149,7 +151,7 @@
     position: absolute;
     top: 0;
     padding: 5px;
-    transition: opacity .3s ease-out, transform .3s ease-out;
+    .transition(~"opacity .3s ease-out, translate .3s ease-out");
 }
 
 .Calendar-weekRows.calendar-enter:not(.calendar-enter-active) {
@@ -157,17 +159,17 @@
 }
 
 .backward .Calendar-weekRows.calendar-enter:not(.calendar-enter-active) {
-    transform: translateY(-50%);
+    .translate(0, -50%);
 }
 
 .forward .Calendar-weekRows.calendar-enter:not(.calendar-enter-active) {
-    transform: translateY(50%);
+    .translate(0, 50%);
 }
 
 
 .Calendar-weekRows.calendar-enter-active {
     opacity: 1;
-    transform: translateY(0);
+    .translate(0, 0);
 }
 
 .Calendar.forward .Calendar-weekRows.calendar-enter-active {
@@ -176,12 +178,12 @@
 
 .Calendar.forward .Calendar-weekRows.calendar-leave {
     opacity: 0;
-    transform: translateY(-100%);
+    .translate(0, -100%);
 }
 
 .Calendar.backward .Calendar-weekRows.calendar-leave {
     opacity: 0;
-    transform: translateY(100%);
+    .translate(0, 100%);
 }
 
 .Calendar-weekCell {
