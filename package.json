@@ -10,7 +10,6 @@
   "mainInput": "main",
   "mainOutput": "main",
   "dependencies": {
-    "react-router": "^0.7.0",
     "react": "~0.11.2"
   },
   "devDependencies": {
