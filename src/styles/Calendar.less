@@ -85,6 +85,8 @@
     line-height: 60px;
     white-space: nowrap;
     .transition(~"transform .3s ease-out 0, opacity .3s ease-out");
+
+    -webkit-transition: -webkit-transform .3s ease-out 0, opacity .3s ease-out;
 }
 
 .Calendar-monthTitle.title-enter {
@@ -151,39 +153,40 @@
     position: absolute;
     top: 0;
     padding: 5px;
-    .transition(~"opacity .3s ease-out, translate .3s ease-out");
+
 }
 
-.Calendar-weekRows.calendar-enter:not(.calendar-enter-active) {
-    opacity: 0;    
+.Calendar-weekRows.calendar-enter {
+    opacity: 0.01;    
 }
 
 .backward .Calendar-weekRows.calendar-enter:not(.calendar-enter-active) {
-    .translate(0, -50%);
+    top: -50%;
 }
 
 .forward .Calendar-weekRows.calendar-enter:not(.calendar-enter-active) {
-    .translate(0, 50%);
+    top: 50%;
 }
-
 
 .Calendar-weekRows.calendar-enter-active {
     opacity: 1;
-    .translate(0, 0);
+    top: 0;
+
+    .transition(all .3s ease-out);
 }
 
-.Calendar.forward .Calendar-weekRows.calendar-enter-active {
-    opacity: 1;
+.Calendar-weekRows.calendar-leave {
+    .transition(all .3s ease-out);    
 }
 
 .Calendar.forward .Calendar-weekRows.calendar-leave {
     opacity: 0;
-    .translate(0, -100%);
+    top: -50%;
 }
 
 .Calendar.backward .Calendar-weekRows.calendar-leave {
     opacity: 0;
-    .translate(0, 100%);
+    top: 50%;
 }
 
 .Calendar-weekCell {

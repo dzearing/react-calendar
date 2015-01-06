@@ -164,7 +164,7 @@ var Calendar = React.createClass({
             _this._canWheel = false;
             setTimeout(function() {
                 _this._canWheel = true;
-            }, 750);
+            }, 500);
 
             if (ev.deltaY < 0) {
                 _this.onPreviousMonth();
