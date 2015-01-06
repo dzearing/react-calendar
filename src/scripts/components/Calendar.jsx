@@ -37,7 +37,9 @@ var Strings = {
         'Th',
         'Fr',
         'Sa'
-    ]
+    ],
+
+    today: 'Today'
 };
 
 var Calendar = React.createClass({
@@ -77,7 +79,7 @@ var Calendar = React.createClass({
                     </ReactCSSTransitionGroup>
                 </div>
                 <div className="Calendar-footer">
-                    <button className="Calendar-button today" onClick={ _this.onToday }>Today</button>
+                    <button className="Calendar-button today" onClick={ _this.onToday }>{ Strings.today }</button>
                 </div>
             </div>
         );
