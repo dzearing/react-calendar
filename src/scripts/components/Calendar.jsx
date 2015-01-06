@@ -58,7 +58,9 @@ var Calendar = React.createClass({
         var weekRows = _this.getWeeks().map(function(week, weekIndex) {
             return <div key={ weekIndex } className="Calendar-weekRow">{
                 week.map(function(day) {
-                    return <div key={ day.key } className={ _this.getCellClassName(day) } onMouseDown={ _this.onDayClicked.bind(_this, day) }>{ day.date }</div>
+                    var dayClickedHandler = _this.onDayClicked.bind(_this, day);
+
+                    return <div key={ day.key } className={ _this.getCellClassName(day) } onMouseDown={ dayClickedHandler } onTouchStart={ dayClickedHandler }>{ day.date }</div>
                 })
             }</div>
         });
